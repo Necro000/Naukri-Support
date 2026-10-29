@@ -117,12 +117,12 @@ Prompt chips: "Notice period policy", "Status of APP-0007", "How do referral bon
 - Honour `prefers-reduced-motion` and `prefers-color-scheme`.
 
 ## 8. Quality checklist
-- [ ] Works at 360 px width and desktop
-- [ ] Loading, empty, error states handled
-- [ ] No hard-coded API URL
-- [ ] No images/screenshots committed (keeps the repo within the brief)
-- [ ] `npm run build` passes
-- [ ] Unique `id`s on interactive elements for testing
+- [x] Works at 360 px width and desktop
+- [x] Loading, empty, error states handled
+- [x] No hard-coded API URL
+- [x] No images/screenshots committed (keeps the repo within the brief)
+- [x] `npm run build` passes
+- [x] Unique `id`s on interactive elements for testing
 
 ## 9. Out of scope
 Auth, real user accounts, analytics, file uploads.

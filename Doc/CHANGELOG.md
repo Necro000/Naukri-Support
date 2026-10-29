@@ -36,6 +36,7 @@ Format: newest first. One entry per phase/tag. Commit style: `feat: task N <summ
 | `part2` | LangGraph agent | 6–10 | ✅ | 2026-10-29 | 7 nodes, conditional routing, memory, schema, 3 guardrails |
 | `part3` | API, logging, eval | 11–13 | ✅ | 2026-10-29 | FastAPI, masked JSONL logs, 15-query RAG triad |
 | `part4` | MCP & resilience | 14–16 | ✅ | 2026-10-29 | FastMCP `/mcp`, SQLite checkpoint resume, retries & timeouts |
+| `frontend` | React UI + deploy (optional) | – | ✅ | 2026-10-29 | React 19 + Vite 6 + Tailwind v4 chat UI, Dockerfile |
 | `v1.0` | Final submission | 1–16 | ✅ | 2026-10-29 | All transcripts saved in UTF-8; all pytest tests passing |
 
 ## Task tracker

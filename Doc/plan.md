@@ -173,12 +173,12 @@ and saved transcripts in `transcripts/`.
 
 ## Phase 6 — Optional: React UI & Deployment (after Part 4, only if time remains)
 See [FRONTEND.md](FRONTEND.md) and [DEPLOYMENT.md](DEPLOYMENT.md).
-- [ ] Scaffold `frontend/` (Vite + React + Tailwind v4)
-- [ ] Add CORS (`ALLOWED_ORIGINS`) to `api/main.py`
-- [ ] Build components: chat, route badge, guardrail chips, status card + escalation meter
-- [ ] Add `Dockerfile`; deploy backend to Hugging Face Spaces; check `/health`
-- [ ] Deploy frontend to Vercel with `VITE_API_URL`
-- [ ] Tag `frontend`; update CHANGELOG and README link
+- [x] Scaffold `frontend/` (Vite + React + Tailwind v4)
+- [x] Add CORS (`ALLOWED_ORIGINS`) to `api/main.py`
+- [x] Build components: chat, route badge, guardrail chips, status card + escalation meter
+- [x] Add `Dockerfile`; deploy backend to Hugging Face Spaces; check `/health`
+- [x] Deploy frontend to Vercel with `VITE_API_URL`
+- [x] Tag `frontend`; update CHANGELOG and README link
 
 ---
 
