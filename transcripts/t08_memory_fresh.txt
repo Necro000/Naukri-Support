@@ -1,0 +1,26 @@
+### Task 8 Demonstration B: Fresh Conversation (State Absent / Reset) ###
+
+=== Turn 1 in Fresh Conversation (conversation_id='conv-fresh-002') ===
+Query    : And what is its expected salary and escalation status?
+Route    : status
+Grounded : False (confidence=0.0000)
+Flags    : []
+Sources  : []
+Answer   : No application record ID was found in your query or conversation history. Please provide a valid record ID such as APP-0007.
+Response JSON:
+{
+  "answer": "No application record ID was found in your query or conversation history. Please provide a valid record ID such as APP-0007.",
+  "route": "status",
+  "sources": [],
+  "grounded": false,
+  "guardrail_flags": [],
+  "trace_id": "c867133c-18bc-41d0-9c7f-8a69dd269738",
+  "confidence": 0.0,
+  "tool_result": {
+    "error": "No application record ID was found in your query or conversation history. Please provide a valid record ID such as APP-0007.",
+    "record_id": null
+  },
+  "conversation_id": "conv-fresh-002"
+}
+[OK] Schema validation passed against agent/response_schema.json
+

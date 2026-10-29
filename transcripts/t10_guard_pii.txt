@@ -1,0 +1,37 @@
+### Task 10 Demonstration 1: Input Guardrail ΓÇö PII Phone Number Masking ###
+
+=== PII Phone Masking Guardrail ===
+Query    : Please call me at +91 98765 43210 regarding the status of application APP-0006.
+Route    : status
+Grounded : True (confidence=1.0000)
+Flags    : ['pii_masked']
+Sources  : ['APP-0006']
+Answer   : Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+Response JSON:
+{
+  "answer": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0006"
+  ],
+  "grounded": true,
+  "guardrail_flags": [
+    "pii_masked"
+  ],
+  "trace_id": "f36c3688-3ae8-45d6-8b0a-07198d05706a",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 440000,
+    "days_since_created": 6,
+    "flagged_priority_review": false,
+    "escalation_score": 0.08,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "demo-guard-pii"
+}
+[OK] Schema validation passed against agent/response_schema.json
+

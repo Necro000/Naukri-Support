@@ -1,0 +1,25 @@
+### Task 10 Demonstration 3: Output Guardrail ΓÇö Groundedness Refusal ###
+
+=== Output Groundedness Guardrail ===
+Query    : Who won the UEFA Champions League final in 2019 and what was the score?
+Route    : rag
+Grounded : False (confidence=0.0614)
+Flags    : ['ungrounded']
+Sources  : []
+Answer   : I don't know based on the available policy information. Please contact Naukri.com employer support for questions outside our documented policies.
+Response JSON:
+{
+  "answer": "I don't know based on the available policy information. Please contact Naukri.com employer support for questions outside our documented policies.",
+  "route": "rag",
+  "sources": [],
+  "grounded": false,
+  "guardrail_flags": [
+    "ungrounded"
+  ],
+  "trace_id": "9ec414b7-b5e9-40d0-88d8-e99a7793b7d5",
+  "confidence": 0.0614,
+  "tool_result": null,
+  "conversation_id": "demo-guard-oos"
+}
+[OK] Schema validation passed against agent/response_schema.json
+

@@ -1,0 +1,122 @@
+### Task 9 Demonstration: Structured Output JSON Schema Validation ###
+
+Loaded JSON Schema (agent/response_schema.json):
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NaukriSupportAgentResponse",
+  "description": "Structured output schema validated on every Naukri.com Support Agent response (Task 9).",
+  "type": "object",
+  "required": [
+    "answer",
+    "route",
+    "sources",
+    "grounded",
+    "guardrail_flags",
+    "trace_id",
+    "confidence"
+  ],
+  "properties": {
+    "answer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "route": {
+      "type": "string",
+      "enum": [
+        "rag",
+        "status"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "grounded": {
+      "type": "boolean"
+    },
+    "guardrail_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "tool_result": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "conversation_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
+
+=== Validated Response 1 (RAG Route) ===
+Query    : How many days of remote work are allowed per year and what is the ergonomics reimbursement?
+Route    : rag
+Grounded : True (confidence=0.5722)
+Flags    : []
+Sources  : ['remote_work']
+Answer   : Based on Naukri.com policy (remote_work): Eligible staff receive a one-time home-office ergonomics reimbursement of up to 18000 INR upon submitting GST-compliant invoices. Roles requiring physical hardware maintenance or on-site client onboarding are excluded from remote-work privileges. Employees who have successfully completed their 90-day probation period may opt into the hybrid work arrangement requiring 3 days in the designated office and up to 2 remote days per week. Fully remote work for up to 20 business days per calendar year is permitted from any location within India upon submitting a request 10 days in advance. [Sources: remote_work]
+Response JSON:
+{
+  "answer": "Based on Naukri.com policy (remote_work): Eligible staff receive a one-time home-office ergonomics reimbursement of up to 18000 INR upon submitting GST-compliant invoices. Roles requiring physical hardware maintenance or on-site client onboarding are excluded from remote-work privileges. Employees who have successfully completed their 90-day probation period may opt into the hybrid work arrangement requiring 3 days in the designated office and up to 2 remote days per week. Fully remote work for up to 20 business days per calendar year is permitted from any location within India upon submitting a request 10 days in advance. [Sources: remote_work]",
+  "route": "rag",
+  "sources": [
+    "remote_work"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "449f808d-38c3-4259-b723-b670a32457bd",
+  "confidence": 0.5722,
+  "tool_result": null,
+  "conversation_id": "demo-schema-1"
+}
+[OK] Schema validation passed against agent/response_schema.json
+
+=== Validated Response 2 (Status Route) ===
+Query    : What is the status of application APP-0001?
+Route    : status
+Grounded : True (confidence=1.0000)
+Flags    : []
+Sources  : ['APP-0001']
+Answer   : Application APP-0001 (Product Manager) is currently in 'Applied' status. Expected annual salary: 1,900,000 INR; created 7 days ago; priority review flag: False. Computed escalation score: 0.0933 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+Response JSON:
+{
+  "answer": "Application APP-0001 (Product Manager) is currently in 'Applied' status. Expected annual salary: 1,900,000 INR; created 7 days ago; priority review flag: False. Computed escalation score: 0.0933 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0001"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "8b43d58f-3f13-4e51-ac78-6243b5cae1e2",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0001",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 1900000,
+    "days_since_created": 7,
+    "flagged_priority_review": false,
+    "escalation_score": 0.0933,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "demo-schema-2"
+}
+[OK] Schema validation passed against agent/response_schema.json
+

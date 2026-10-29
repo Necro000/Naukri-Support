@@ -1,0 +1,59 @@
+### Task 7 Demonstration: LangGraph Conditional Routing (Policy vs Status) ###
+
+=== Route 1: Policy -> RAG Tool ===
+Query    : What is the employee referral bonus payout amount and installment schedule?
+Route    : rag
+Grounded : True (confidence=0.7122)
+Flags    : []
+Sources  : ['referral_bonus', 'offer_negotiation']
+Answer   : Based on Naukri.com policy (referral_bonus, offer_negotiation): Active full-time employees below director level are eligible to earn a referral payout when a referred candidate is hired through the internal referral portal. The referral bonus is 40000 INR for technical and product positions and 25000 INR for analytics, sales, and human-resources positions. Payouts are disbursed in two equal 50 percent installments, with the first credited after the hire completes 90 days of service and the second after 180 days. Referrals for contractors, returning alumni within 12 months, or candidates already contacted by recruiters in the past 60 days do not qualify for rewards. [Sources: referral_bonus, offer_negotiation]
+Response JSON:
+{
+  "answer": "Based on Naukri.com policy (referral_bonus, offer_negotiation): Active full-time employees below director level are eligible to earn a referral payout when a referred candidate is hired through the internal referral portal. The referral bonus is 40000 INR for technical and product positions and 25000 INR for analytics, sales, and human-resources positions. Payouts are disbursed in two equal 50 percent installments, with the first credited after the hire completes 90 days of service and the second after 180 days. Referrals for contractors, returning alumni within 12 months, or candidates already contacted by recruiters in the past 60 days do not qualify for rewards. [Sources: referral_bonus, offer_negotiation]",
+  "route": "rag",
+  "sources": [
+    "referral_bonus",
+    "offer_negotiation"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "9b521106-9b18-42b5-af3b-1200e6cd4a00",
+  "confidence": 0.7122,
+  "tool_result": null,
+  "conversation_id": "demo-routes-1"
+}
+[OK] Schema validation passed against agent/response_schema.json
+
+=== Route 2: Application Status -> Status Lookup Tool ===
+Query    : Can you check the application status and escalation score for APP-0006?
+Route    : status
+Grounded : True (confidence=1.0000)
+Flags    : []
+Sources  : ['APP-0006']
+Answer   : Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+Response JSON:
+{
+  "answer": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0006"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "ff6ec60b-902b-446b-9938-325ab14f5e8c",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 440000,
+    "days_since_created": 6,
+    "flagged_priority_review": false,
+    "escalation_score": 0.08,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "demo-routes-2"
+}
+[OK] Schema validation passed against agent/response_schema.json
+

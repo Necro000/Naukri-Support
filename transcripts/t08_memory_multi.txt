@@ -1,0 +1,101 @@
+### Task 8 Demonstration A: Multi-Turn Persisted Memory (State Carried) ###
+
+=== Turn 1 (conversation_id='conv-multi-001') ===
+Query    : What is the current application status of APP-0006?
+Route    : status
+Grounded : True (confidence=1.0000)
+Flags    : []
+Sources  : ['APP-0006']
+Answer   : Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+Response JSON:
+{
+  "answer": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0006"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "3404539b-5f3f-420b-a51c-13c707190fe1",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 440000,
+    "days_since_created": 6,
+    "flagged_priority_review": false,
+    "escalation_score": 0.08,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "conv-multi-001"
+}
+[OK] Schema validation passed against agent/response_schema.json
+
+=== Turn 2 Follow-up Reusing Memory (conversation_id='conv-multi-001') ===
+Query    : And what is its expected salary and escalation status?
+Route    : status
+Grounded : True (confidence=1.0000)
+Flags    : []
+Sources  : ['APP-0006']
+Answer   : Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+Response JSON:
+{
+  "answer": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0006"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "90b0cef3-6213-41fd-a2d5-0962569fa52a",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 440000,
+    "days_since_created": 6,
+    "flagged_priority_review": false,
+    "escalation_score": 0.08,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "conv-multi-001"
+}
+[OK] Schema validation passed against agent/response_schema.json
+
+Persisted memory.json contents:
+{
+  "conv-multi-001": [
+    {
+      "role": "user",
+      "content": "What is the current application status of APP-0006?",
+      "record_id": "APP-0006",
+      "route": "status",
+      "ts": "2026-10-29T11:00:18.694164+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+      "record_id": "APP-0006",
+      "route": "status",
+      "ts": "2026-10-29T11:00:18.694164+00:00"
+    },
+    {
+      "role": "user",
+      "content": "And what is its expected salary and escalation status?",
+      "record_id": "APP-0006",
+      "route": "status",
+      "ts": "2026-10-29T11:00:18.730704+00:00"
+    },
+    {
+      "role": "assistant",
+      "content": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+      "record_id": "APP-0006",
+      "route": "status",
+      "ts": "2026-10-29T11:00:18.730704+00:00"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+=== Escalation Score Design & Status Tool Demo (Task 6) ===
+Formula   : escalation_score = 0.6 * flagged_priority_review + 0.4 * (days_since_created / 30)
+Threshold : 0.3600 (80th percentile of dataset escalation scores)
+Records >= threshold: 17 / 60 (28.33%)
+
+--- Escalation Score Percentile Distribution ---
+  min   : 0.0000
+  p25   : 0.1200
+  p50   : 0.2800
+  p75   : 0.3600
+  p80   : 0.3600
+  p90   : 0.6933
+  max   : 0.9733
+
+--- Tool Invocations ---
+  check_job_application_status('APP-0002') ->
+    {'record_id': 'APP-0002', 'category': 'HR Executive', 'status': 'Interview Scheduled', 'expected_salary_inr': 920000, 'days_since_created': 17, 'flagged_priority_review': True, 'escalation_score': 0.8267, 'escalation_threshold': 0.36, 'escalate_recommended': True}
+  check_job_application_status('APP-0011') ->
+    {'record_id': 'APP-0011', 'category': 'Product Manager', 'status': 'Interview Scheduled', 'expected_salary_inr': 1400000, 'days_since_created': 27, 'flagged_priority_review': False, 'escalation_score': 0.36, 'escalation_threshold': 0.36, 'escalate_recommended': True}
+  check_job_application_status('APP-0001') ->
+    {'record_id': 'APP-0001', 'category': 'Product Manager', 'status': 'Applied', 'expected_salary_inr': 1900000, 'days_since_created': 7, 'flagged_priority_review': False, 'escalation_score': 0.0933, 'escalation_threshold': 0.36, 'escalate_recommended': False}
+  check_job_application_status('APP-9999') ->
+    {'error': "Application record 'APP-9999' not found in dataset.", 'record_id': 'APP-9999'}
