@@ -1,0 +1,10 @@
+=== Task 16 (c): Global Graph Timeout Demonstration ===
+Configured global graph timeout : 2.00s
+Simulated 3-node delay          : 3 x 1.30s = 3.90s total
+
+  [Global Run] Executing step_1 (sleeping 1.30s)...
+  [Global Run] step_1 completed.
+  [Global Run] Executing step_2 (sleeping 1.30s)...
+
+[GlobalGraphTimeoutError] Global graph execution cancelled cleanly after 2.014s (budget=2.00s; nodes started before cancellation=['step_1', 'step_2']).
+[OK] Global timeout cancelled the multi-node run cleanly.

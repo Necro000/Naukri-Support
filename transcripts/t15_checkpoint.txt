@@ -1,0 +1,37 @@
+=== SQLite Checkpointing Pause & Resume Demonstration (Task 15) ===
+SQLite checkpoint DB : checkpoints.sqlite
+Thread ID            : thread-checkpoint-demo-001
+Interrupt configured : interrupt_before=['generate_answer']
+
+--- Phase (a): Initial Run (executes first 3 nodes, stops before 'generate_answer') ---
+  [EXEC] node=guard_input        execution_count=1
+  [EXEC] node=route_intent       execution_count=1
+  [EXEC] node=status_lookup      execution_count=1
+
+--- Phase (b): Inspect Persisted Checkpoint State before Resume ---
+  snapshot.next                 : ('generate_answer',)
+  checkpointed masked_query     : 'Please check the job application status and escalation score for APP-0006.'
+  checkpointed intent           : 'status'
+  checkpointed record_id        : 'APP-0006'
+  checkpointed tool_result      : {'record_id': 'APP-0006', 'category': 'HR Executive', 'status': 'Applied', 'expected_salary_inr': 440000, 'days_since_created': 6, 'flagged_priority_review': False, 'escalation_score': 0.08, 'escalation_threshold': 0.36, 'escalate_recommended': False}
+  Node execution counts (paused): {'guard_input': 1, 'route_intent': 1, 'rag_retrieve': 0, 'status_lookup': 1, 'generate_answer': 0, 'guard_output': 0, 'format_response': 0}
+
+--- Phase (c): Resume on SAME thread_id with graph.invoke(None, config) ---
+  (Recompiling without interrupt_before on the same SqliteSaver + thread_id)
+  [EXEC] node=generate_answer    execution_count=1
+  [EXEC] node=guard_output       execution_count=1
+  [EXEC] node=format_response    execution_count=1
+
+--- Proof that Completed Nodes Were NOT Re-Executed ---
+  snapshot.next after completion: ()
+  guard_input       : before_resume=1 -> after_resume=1  [LOADED FROM CHECKPOINT (not re-executed)]
+  route_intent      : before_resume=1 -> after_resume=1  [LOADED FROM CHECKPOINT (not re-executed)]
+  status_lookup     : before_resume=1 -> after_resume=1  [LOADED FROM CHECKPOINT (not re-executed)]
+  generate_answer   : before_resume=0 -> after_resume=1  [EXECUTED ON RESUME]
+  guard_output      : before_resume=0 -> after_resume=1  [EXECUTED ON RESUME]
+  format_response   : before_resume=0 -> after_resume=1  [EXECUTED ON RESUME]
+
+Final Resumed Agent Answer:
+  Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).
+
+[OK] SQLite checkpoint pause-and-resume verified.

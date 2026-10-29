@@ -1,0 +1,36 @@
+=== Starting Naukri.com FastMCP Server at http://127.0.0.1:8000/mcp ===
+INFO:     127.0.0.1:50663 - "POST /mcp HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50663 - "POST /mcp HTTP/1.1" 200 OK
+[MCP Server] Executing check_job_application_status(record_id='APP-0002')
+INFO:     127.0.0.1:50663 - "POST /mcp HTTP/1.1" 200 OK
+[MCP Server] Executing check_job_application_status(record_id='APP-0006')
+INFO:     127.0.0.1:50663 - "POST /mcp HTTP/1.1" 200 OK
+[MCP Server] Executing check_job_application_status(record_id='APP-0001')
+INFO:     127.0.0.1:50663 - "POST /mcp HTTP/1.1" 200 OK
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│                                                                             │
+│                        ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                        █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                             │
+│                                                                             │
+│                                                                             │
+│                                FastMCP 4.1.4                                │
+│                            https://gofastmcp.com                            │
+│                                                                             │
+│                 🖥  Server:      naukri-status, 4.1.4                        │
+│                 🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+[10/29/26 16:26:35] INFO     Starting MCP server               transport.py:358
+                             'naukri-status' with transport                    
+                             'http' on                                         
+                             http://127.0.0.1:8000/mcp                         
+INFO:     Started server process [19196]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)

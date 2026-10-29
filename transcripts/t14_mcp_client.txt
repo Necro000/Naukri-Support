@@ -1,0 +1,27 @@
+=== Naukri.com MCP Client Round-Trip Demonstration (Task 14) ===
+Connecting to MCP server endpoint: http://127.0.0.1:8000/mcp
+
+Discovered 1 MCP tool(s):
+  - name       : check_job_application_status
+    description: Look up a Naukri.com job application's status, expected salary, and escalation score.
+    inputSchema: {'type': 'object', 'additionalProperties': False, 'properties': {'record_id': {'type': 'string', 'description': 'Job application identifier formatted as ``APP-XXXX`` (e.g. ``APP-0002``).'}}, 'required': ['record_id']}
+
+--- MCP Tool Call #1: record_id='APP-0002' ---
+Standardized MCP Response object:
+  CallToolResult(content=[TextContent(type='text', text='{"record_id":"APP-0002","category":"HR Executive","status":"Interview Scheduled","expected_salary_inr":920000,"days_since_created":17,"flagged_priority_review":true,"escalation_score":0.8267,"escalation_threshold":0.36,"escalate_recommended":true}', annotations=None, meta=None)], structured_content={'record_id': 'APP-0002', 'category': 'HR Executive', 'status': 'Interview Scheduled', 'expected_salary_inr': 920000, 'days_since_created': 17, 'flagged_priority_review': True, 'escalation_score': 0.8267, 'escalation_threshold': 0.36, 'escalate_recommended': True}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'naukri-status', 'version': '4.1.4'}}, data={'record_id': 'APP-0002', 'category': 'HR Executive', 'status': 'Interview Scheduled', 'expected_salary_inr': 920000, 'days_since_created': 17, 'flagged_priority_review': True, 'escalation_score': 0.8267, 'escalation_threshold': 0.36, 'escalate_recommended': True}, is_error=False)
+Structured data payload:
+  {'record_id': 'APP-0002', 'category': 'HR Executive', 'status': 'Interview Scheduled', 'expected_salary_inr': 920000, 'days_since_created': 17, 'flagged_priority_review': True, 'escalation_score': 0.8267, 'escalation_threshold': 0.36, 'escalate_recommended': True}
+
+--- MCP Tool Call #2: record_id='APP-0006' ---
+Standardized MCP Response object:
+  CallToolResult(content=[TextContent(type='text', text='{"record_id":"APP-0006","category":"HR Executive","status":"Applied","expected_salary_inr":440000,"days_since_created":6,"flagged_priority_review":false,"escalation_score":0.08,"escalation_threshold":0.36,"escalate_recommended":false}', annotations=None, meta=None)], structured_content={'record_id': 'APP-0006', 'category': 'HR Executive', 'status': 'Applied', 'expected_salary_inr': 440000, 'days_since_created': 6, 'flagged_priority_review': False, 'escalation_score': 0.08, 'escalation_threshold': 0.36, 'escalate_recommended': False}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'naukri-status', 'version': '4.1.4'}}, data={'record_id': 'APP-0006', 'category': 'HR Executive', 'status': 'Applied', 'expected_salary_inr': 440000, 'days_since_created': 6, 'flagged_priority_review': False, 'escalation_score': 0.08, 'escalation_threshold': 0.36, 'escalate_recommended': False}, is_error=False)
+Structured data payload:
+  {'record_id': 'APP-0006', 'category': 'HR Executive', 'status': 'Applied', 'expected_salary_inr': 440000, 'days_since_created': 6, 'flagged_priority_review': False, 'escalation_score': 0.08, 'escalation_threshold': 0.36, 'escalate_recommended': False}
+
+--- MCP Tool Call #3: record_id='APP-0001' ---
+Standardized MCP Response object:
+  CallToolResult(content=[TextContent(type='text', text='{"record_id":"APP-0001","category":"Product Manager","status":"Applied","expected_salary_inr":1900000,"days_since_created":7,"flagged_priority_review":false,"escalation_score":0.0933,"escalation_threshold":0.36,"escalate_recommended":false}', annotations=None, meta=None)], structured_content={'record_id': 'APP-0001', 'category': 'Product Manager', 'status': 'Applied', 'expected_salary_inr': 1900000, 'days_since_created': 7, 'flagged_priority_review': False, 'escalation_score': 0.0933, 'escalation_threshold': 0.36, 'escalate_recommended': False}, meta={'io.modelcontextprotocol/serverInfo': {'name': 'naukri-status', 'version': '4.1.4'}}, data={'record_id': 'APP-0001', 'category': 'Product Manager', 'status': 'Applied', 'expected_salary_inr': 1900000, 'days_since_created': 7, 'flagged_priority_review': False, 'escalation_score': 0.0933, 'escalation_threshold': 0.36, 'escalate_recommended': False}, is_error=False)
+Structured data payload:
+  {'record_id': 'APP-0001', 'category': 'Product Manager', 'status': 'Applied', 'expected_salary_inr': 1900000, 'days_since_created': 7, 'flagged_priority_review': False, 'escalation_score': 0.0933, 'escalation_threshold': 0.36, 'escalate_recommended': False}
+
+[OK] MCP client-server round trip completed for all record IDs.

@@ -1,0 +1,15 @@
+=== Task 16 (a): Exponential-Backoff RetryPolicy Recovery Demonstration ===
+Configured RetryPolicy:
+  max_attempts     = 4
+  initial_interval = 0.5s
+  backoff_factor   = 2.0
+  max_interval     = 4.0s
+  jitter           = True
+
+  [Attempt 1/4 at t=0.009s] flaky_lookup_node -> SIMULATED FAILURE (TransientLookupError)
+  [Attempt 2/4 at t=0.778s] flaky_lookup_node -> SIMULATED FAILURE (TransientLookupError)
+  [Attempt 3/4 at t=2.115s] flaky_lookup_node -> RECOVERED SUCCESSFULLY
+
+Final Result : Recovered on attempt 3: Application APP-0006 status is 'Applied' (escalation_score=0.0800).
+Attempt Log  : [{'attempt': 1, 'elapsed_s': 0.009, 'outcome': 'TransientLookupError'}, {'attempt': 2, 'elapsed_s': 0.778, 'outcome': 'TransientLookupError'}, {'attempt': 3, 'elapsed_s': 2.115, 'outcome': 'SUCCESS'}]
+[OK] RetryPolicy recovered cleanly on attempt 3 within max_attempts=4.

@@ -1,0 +1,9 @@
+=== Task 16 (b): Per-Node Timeout Demonstration ===
+Configured per-node timeout : 1.00s
+Simulated slow node delay   : 2.50s
+
+  [Node 'slow_rag_node'] Starting work (simulated sleep=2.50s, timeout=1.00s)...
+  [NodeTimeoutError] Node 'slow_rag_node' exceeded per-node timeout of 1.00s (aborted cleanly after 1.002s).
+
+Caught clean per-node exception after 1.008s: Node 'slow_rag_node' exceeded per-node timeout of 1.00s (aborted cleanly after 1.002s).
+[OK] Per-node timeout fired cleanly without hanging.
