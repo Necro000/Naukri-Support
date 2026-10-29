@@ -1,0 +1,13 @@
+.venv/
+chroma_db/
+checkpoints.sqlite
+checkpoints.sqlite-shm
+checkpoints.sqlite-wal
+memory.json
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+node_modules/
+dist/
+.env
