@@ -1,0 +1,35 @@
+=== Naukri.com Job Application Dataset Report (Task 1) ===
+Seed                       : 42
+Total records              : 60 (threshold: >= 40)
+Category weights           : {'Software Engineer': 0.3, 'Data Analyst': 0.22, 'Product Manager': 0.16, 'HR Executive': 0.14, 'Sales Associate': 0.18}
+Status weights             : {'Applied': 0.35, 'Screening': 0.25, 'Interview Scheduled': 0.18, 'Offered': 0.1, 'Rejected': 0.12}
+Flagged probability target : 0.2
+Salary range (INR/yr)      : 300,000 - 3,000,000 (per-category bands)
+Salary reasoning           : Annual expected salaries span 300,000 to 3,000,000 INR across role-specific bands to reflect realistic Indian job-market compensation from entry-level Sales and HR roles up to experienced Software Engineers and Product Managers.
+
+--- Count per Category (each must be >= 3) ---
+  Software Engineer     : 17
+  Data Analyst          : 13
+  Product Manager       : 6
+  HR Executive          : 9
+  Sales Associate       : 15
+
+--- Count per Status (each must be >= 1) ---
+  Applied               : 24
+  Screening             : 15
+  Interview Scheduled   : 6
+  Offered               : 6
+  Rejected              : 9
+
+--- Priority Review Flagged ---
+  Flagged count            : 11 / 60
+  Flagged percentage       : 18.33% (threshold: 10.00% - 30.00%)
+
+--- Sample Records (first 5) ---
+  {'record_id': 'APP-0001', 'category': 'Product Manager', 'status': 'Applied', 'expected_salary_inr': 1900000, 'days_since_created': 7, 'flagged_priority_review': False}
+  {'record_id': 'APP-0002', 'category': 'HR Executive', 'status': 'Interview Scheduled', 'expected_salary_inr': 920000, 'days_since_created': 17, 'flagged_priority_review': True}
+  {'record_id': 'APP-0003', 'category': 'Data Analyst', 'status': 'Applied', 'expected_salary_inr': 770000, 'days_since_created': 7, 'flagged_priority_review': False}
+  {'record_id': 'APP-0004', 'category': 'Software Engineer', 'status': 'Applied', 'expected_salary_inr': 2260000, 'days_since_created': 22, 'flagged_priority_review': False}
+  {'record_id': 'APP-0005', 'category': 'Software Engineer', 'status': 'Screening', 'expected_salary_inr': 610000, 'days_since_created': 24, 'flagged_priority_review': False}
+
+[OK] All dataset assertions passed.

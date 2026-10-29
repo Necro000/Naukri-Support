@@ -1,0 +1,3 @@
+# Internal Transfer Eligibility
+
+Permanent employees who have completed at least 12 consecutive months in their current role and achieved a performance rating of 3 or higher on the 5-point annual scale may apply for internal job postings. Employees on an active performance improvement plan or disciplinary warning are ineligible to initiate an internal mobility request. Internal applicants must notify their current manager only after advancing past the initial hiring-manager exploratory conversation. Once an internal transfer offer is accepted, the releasing department must complete the transition within 45 calendar days.

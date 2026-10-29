@@ -1,0 +1,3 @@
+# Exit Interview Process
+
+Departing employees receive a confidential digital exit-survey questionnaire 10 business days before their scheduled last working day. An HR People Partner conducts a mandatory 30-minute one-on-one exit interview at least 3 business days prior to final clearance to record feedback on management, compensation, and culture. Full and final settlement payouts, experience letters, and relieving certificates are processed within 15 business days after IT asset return and exit-interview completion. Aggregated anonymized attrition insights are reviewed quarterly by department leadership without disclosing individual employee identities.

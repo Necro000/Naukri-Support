@@ -1,0 +1,3 @@
+# Employee Referral Bonus Policy
+
+Active full-time employees below director level are eligible to earn a referral payout when a referred candidate is hired through the internal referral portal. The referral bonus is 40000 INR for technical and product positions and 25000 INR for analytics, sales, and human-resources positions. Payouts are disbursed in two equal 50 percent installments, with the first credited after the hire completes 90 days of service and the second after 180 days. Referrals for contractors, returning alumni within 12 months, or candidates already contacted by recruiters in the past 60 days do not qualify for rewards.

@@ -1,0 +1,3 @@
+# Background Verification Process
+
+All selected candidates must complete a mandatory third-party background verification check covering identity, criminal records, highest education degree, and the most recent 5 years of employment history. Candidates must upload digital copies of relieving letters, degree certificates, and government tax forms to the verification portal within 7 calendar days of offer acceptance. Standard verification clearance takes 10 business days, during which provisional onboarding access is granted only after criminal and identity checks pass. Any falsified academic credential or undisclosed employment gap exceeding 90 days results in immediate revocation of the employment offer.

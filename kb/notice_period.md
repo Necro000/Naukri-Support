@@ -1,0 +1,3 @@
+# Notice Period Policy
+
+Confirmed full-time employees in engineering, product, and analytics grades are bound by a standard 60-day notice period upon submitting a formal resignation on the HR portal. Employees in associate sales and human-resources grades serve a 30-day notice period unless waived by their department head. Notice buyout requests are permitted for up to 30 remaining days at a daily rate calculated from gross monthly fixed pay, subject to knowledge-transfer completion. Unused earned leave cannot be offset against the mandatory notice window without explicit approval from the reporting manager.

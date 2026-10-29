@@ -1,0 +1,3 @@
+# Remote Work Eligibility
+
+Employees who have successfully completed their 90-day probation period may opt into the hybrid work arrangement requiring 3 days in the designated office and up to 2 remote days per week. Fully remote work for up to 20 business days per calendar year is permitted from any location within India upon submitting a request 10 days in advance. Eligible staff receive a one-time home-office ergonomics reimbursement of up to 18000 INR upon submitting GST-compliant invoices. Roles requiring physical hardware maintenance or on-site client onboarding are excluded from remote-work privileges.

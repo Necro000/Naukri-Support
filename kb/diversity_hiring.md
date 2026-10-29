@@ -1,0 +1,3 @@
+# Diversity Hiring Guidelines
+
+Every open hiring requisition at grade L3 and above must include at least 2 qualified candidates from underrepresented gender, disability, or career-returnee groups in the final interview slate. Interview panels must comprise at least 3 trained assessors representing a minimum of 2 distinct functional teams to mitigate unconscious evaluation bias. Job descriptions are screened through an automated inclusive-language linter before publication on Naukri.com to eliminate gender-coded phrasing. Career-returnee applicants with a career break of 1 to 5 years are eligible for the structured 16-week returnship fellowship pathway.

@@ -1,0 +1,24 @@
+=== Knowledge Base Chunking & Indexing Report (Tasks 2 & 3) ===
+Embedding model            : all-MiniLM-L6-v2
+Total KB documents indexed : 12 (required: >= 12)
+Collection 'kb_fixed'      : 48 chunks (size=200 chars, overlap=40 chars)
+Collection 'kb_sentence'   : 24 chunks (2 sentences/chunk)
+
+=== Smoke Retrieval Test ===
+Sample query: 'What is the standard notice period for software engineers and can unused leave offset it?'
+
+--- Top-3 from 'kb_fixed' ---
+  [1] doc_id=notice_period            chunk_id=notice_period__fixed_00            similarity=0.5974
+      text: Confirmed full-time employees in engineering, product, and analytics grades are bound by a standard 60-day notice period upon submitting a formal resignation on the HR portal. Employees in associate s
+  [2] doc_id=notice_period            chunk_id=notice_period__fixed_01            similarity=0.5498
+      text: the HR portal. Employees in associate sales and human-resources grades serve a 30-day notice period unless waived by their department head. Notice buyout requests are permitted for up to 30 remaining
+  [3] doc_id=notice_period            chunk_id=notice_period__fixed_03            similarity=0.4864
+      text: eave cannot be offset against the mandatory notice window without explicit approval from the reporting manager.
+
+--- Top-3 from 'kb_sentence' ---
+  [1] doc_id=notice_period            chunk_id=notice_period__sentence_00         similarity=0.6229
+      text: Confirmed full-time employees in engineering, product, and analytics grades are bound by a standard 60-day notice period upon submitting a formal resignation on the HR portal. Employees in associate sales and human-resources grades serve a 30-day notice period unless waived by their department head.
+  [2] doc_id=notice_period            chunk_id=notice_period__sentence_01         similarity=0.5667
+      text: Notice buyout requests are permitted for up to 30 remaining days at a daily rate calculated from gross monthly fixed pay, subject to knowledge-transfer completion. Unused earned leave cannot be offset against the mandatory notice window without explicit approval from the reporting manager.
+  [3] doc_id=exit_interview           chunk_id=exit_interview__sentence_00        similarity=0.4286
+      text: Departing employees receive a confidential digital exit-survey questionnaire 10 business days before their scheduled last working day. An HR People Partner conducts a mandatory 30-minute one-on-one exit interview at least 3 business days prior to final clearance to record feedback on management, compensation, and culture.

@@ -1,0 +1,3 @@
+# Job Application Eligibility Criteria
+
+External candidates applying through Naukri.com must hold an accredited undergraduate degree or possess at least 24 months of verified full-time industry experience. Applicants who were rejected in a final hiring round must wait a cooling-off period of 180 calendar days before reapplying to the same job family. Every candidate is permitted at most 3 active job applications across open requisitions within any rolling 90-day window. Candidates must also hold valid work authorization for India at the time of submission because visa sponsorship is not offered for domestic roles.

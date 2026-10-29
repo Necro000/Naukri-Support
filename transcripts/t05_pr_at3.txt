@@ -1,0 +1,25 @@
+=== Retrieval Evaluation: Fixed-Size vs Sentence Chunking (Task 5) ===
+Scoring rule: Map top-3 retrieved chunks to parent doc_ids and deduplicate before scoring.
+  Precision@3 (unique-doc denominator) = |relevant Γê⌐ unique_retrieved_docs| / |unique_retrieved_docs|
+  Recall@3                             = |relevant Γê⌐ unique_retrieved_docs| / |relevant_docs|
+
+--- Collection: kb_fixed ---
+  Q1: relevant=['eligibility'] | top3_chunks=['eligibility', 'data_retention', 'eligibility'] -> unique_docs=['eligibility', 'data_retention'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q2: relevant=['interview_scheduling'] | top3_chunks=['interview_scheduling', 'interview_scheduling', 'eligibility'] -> unique_docs=['interview_scheduling', 'eligibility'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q3: relevant=['offer_negotiation'] | top3_chunks=['offer_negotiation', 'offer_negotiation', 'offer_negotiation'] -> unique_docs=['offer_negotiation'] | hits=1 | P@3 = 1/1 = 1.0000 | R@3 = 1/1 = 1.0000
+  Q4: relevant=['background_verification'] | top3_chunks=['background_verification', 'background_verification', 'data_retention'] -> unique_docs=['background_verification', 'data_retention'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q5: relevant=['notice_period'] | top3_chunks=['notice_period', 'notice_period', 'probation_period'] -> unique_docs=['notice_period', 'probation_period'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q6: relevant=['referral_bonus'] | top3_chunks=['referral_bonus', 'referral_bonus', 'offer_negotiation'] -> unique_docs=['referral_bonus', 'offer_negotiation'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  AVERAGE (kb_fixed): Precision@3 = 0.5833 (strict /3 denom: 0.3333), Recall@3 = 1.0000
+
+--- Collection: kb_sentence ---
+  Q1: relevant=['eligibility'] | top3_chunks=['eligibility', 'eligibility', 'diversity_hiring'] -> unique_docs=['eligibility', 'diversity_hiring'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q2: relevant=['interview_scheduling'] | top3_chunks=['interview_scheduling', 'interview_scheduling', 'diversity_hiring'] -> unique_docs=['interview_scheduling', 'diversity_hiring'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q3: relevant=['offer_negotiation'] | top3_chunks=['offer_negotiation', 'offer_negotiation', 'referral_bonus'] -> unique_docs=['offer_negotiation', 'referral_bonus'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q4: relevant=['background_verification'] | top3_chunks=['background_verification', 'background_verification', 'data_retention'] -> unique_docs=['background_verification', 'data_retention'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q5: relevant=['notice_period'] | top3_chunks=['notice_period', 'notice_period', 'referral_bonus'] -> unique_docs=['notice_period', 'referral_bonus'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  Q6: relevant=['referral_bonus'] | top3_chunks=['referral_bonus', 'referral_bonus', 'offer_negotiation'] -> unique_docs=['referral_bonus', 'offer_negotiation'] | hits=1 | P@3 = 1/2 = 0.5000 | R@3 = 1/1 = 1.0000
+  AVERAGE (kb_sentence): Precision@3 = 0.5000 (strict /3 denom: 0.3333), Recall@3 = 1.0000
+
+=== Recommendation ===
+We recommend deploying 'kb_sentence' (sentence-based chunking, 2 sentences/chunk) as our active production collection. Across the 6 evaluation queries, 'kb_sentence' achieves an average Precision@3 of 0.5000 and Recall@3 of 1.0000, compared to 'kb_fixed' with Precision@3 of 0.5833 and Recall@3 of 1.0000, while requiring only 24 chunks instead of 46 and preserving complete policy sentences without mid-word boundary splits.

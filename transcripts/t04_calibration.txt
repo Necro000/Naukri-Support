@@ -1,0 +1,33 @@
+=== Empirical Groundedness Threshold Calibration (Task 4) ===
+
+Collection: kb_sentence
+#   Scope         Top-1 Sim   Matched Doc              Query
+---------------------------------------------------------------------------------------------------------
+1   in-scope      0.6383      eligibility              How many active job applications can an external candidate submit in 90 days?
+2   in-scope      0.6196      notice_period            What is the standard notice period for software engineers and can leave offset it?
+3   in-scope      0.7259      referral_bonus           How much is the employee referral bonus for technical roles and when is it paid?
+4   in-scope      0.6874      data_retention           How long are applicant resumes retained before automatic anonymization or deletion?
+5   out-of-scope  0.2396      remote_work              What is the weather forecast for Mumbai tomorrow and will it rain during the cricket match?
+6   out-of-scope  0.0992      eligibility              How do I bake a sourdough bread loaf using whole wheat flour at high altitude?
+7   out-of-scope  0.1458      eligibility              Which cryptocurrency hardware wallet supports Solana staking rewards with zero gas fees?
+---------------------------------------------------------------------------------------------------------
+Lowest in-scope top-1 similarity     : 0.6196
+Highest out-of-scope top-1 similarity: 0.2396
+Observed cluster separation gap      : 0.3800
+Empirical midpoint threshold         : 0.4296
+
+Collection: kb_fixed
+#   Scope         Top-1 Sim   Matched Doc              Query
+---------------------------------------------------------------------------------------------------------
+1   in-scope      0.5633      background_verification  How many active job applications can an external candidate submit in 90 days?
+2   in-scope      0.5930      notice_period            What is the standard notice period for software engineers and can leave offset it?
+3   in-scope      0.7439      referral_bonus           How much is the employee referral bonus for technical roles and when is it paid?
+4   in-scope      0.6518      data_retention           How long are applicant resumes retained before automatic anonymization or deletion?
+5   out-of-scope  0.2793      remote_work              What is the weather forecast for Mumbai tomorrow and will it rain during the cricket match?
+6   out-of-scope  0.1275      eligibility              How do I bake a sourdough bread loaf using whole wheat flour at high altitude?
+7   out-of-scope  0.2310      eligibility              Which cryptocurrency hardware wallet supports Solana staking rewards with zero gas fees?
+---------------------------------------------------------------------------------------------------------
+Lowest in-scope top-1 similarity     : 0.5633
+Highest out-of-scope top-1 similarity: 0.2793
+Observed cluster separation gap      : 0.2840
+Empirical midpoint threshold         : 0.4213

@@ -1,0 +1,3 @@
+# Applicant Data Retention Policy
+
+Candidate resumes, contact records, and interview scorecards collected via Naukri.com are retained in encrypted storage for 24 months from the date of the last application update. After 24 months of inactivity, personally identifiable candidate records are automatically purged or irreversibly anonymized for aggregate hiring analytics. Applicants may submit a formal data-deletion request to the Data Protection Officer at any time, which must be fulfilled within 14 calendar days unless an active legal hold applies. Background-verification documents for rejected or withdrawn candidates are permanently deleted within 30 calendar days of decision closure.

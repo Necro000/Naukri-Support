@@ -1,0 +1,3 @@
+# Interview Scheduling Process
+
+Once a recruiter advances a profile to the screening shortlist, the candidate receives an automated calendar invitation link within 48 business hours. Technical and panel interviews are booked in 45-minute slots between 10:00 AM and 06:00 PM IST from Monday through Friday. Each candidate may request at most 2 slot reschedules per interview stage provided they notify the coordinator at least 12 hours before the confirmed start time. Unexcused no-shows automatically place the application on hold for 14 days until the candidate provides written confirmation of availability.
