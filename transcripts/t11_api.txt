@@ -1,0 +1,111 @@
+=== FastAPI Deployment Demonstration (Task 11) ===
+
+--- 1. GET /health ---
+Status Code  : 200
+Response JSON:
+{
+  "status": "ok",
+  "mock_llm": true,
+  "collections": {
+    "kb_fixed": 48,
+    "kb_sentence": 24
+  }
+}
+
+--- 2. POST /ask (Policy Route ΓÇö Notice Period) ---
+Request Body : {"query": "What is the standard notice period for software engineers and how does buyout work?", "conversation_id": "api-demo-conv-1"}
+Status Code  : 200
+Response JSON:
+{
+  "answer": "Based on Naukri.com policy (notice_period): Notice buyout requests are permitted for up to 30 remaining days at a daily rate calculated from gross monthly fixed pay, subject to knowledge-transfer completion. Unused earned leave cannot be offset against the mandatory notice window without explicit approval from the reporting manager. Confirmed full-time employees in engineering, product, and analytics grades are bound by a standard 60-day notice period upon submitting a formal resignation on the HR portal. Employees in associate sales and human-resources grades serve a 30-day notice period unless waived by their department head. [Sources: notice_period]",
+  "route": "rag",
+  "sources": [
+    "notice_period"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "b0cdf50f-d7a4-4d6f-9060-af423927e279",
+  "confidence": 0.6285,
+  "tool_result": null,
+  "conversation_id": "api-demo-conv-1"
+}
+
+--- 3. POST /ask (Status Route ΓÇö APP-0006) ---
+Request Body : {"query": "What is the status and escalation score of APP-0006?", "conversation_id": "api-demo-conv-2"}
+Status Code  : 200
+Response JSON:
+{
+  "answer": "Application APP-0006 (HR Executive) is currently in 'Applied' status. Expected annual salary: 440,000 INR; created 6 days ago; priority review flag: False. Computed escalation score: 0.0800 (threshold 0.3600) -> Escalation recommended: NO (within normal SLA threshold).",
+  "route": "status",
+  "sources": [
+    "APP-0006"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "56ab8073-86f8-45d8-b714-32ca6b80ec96",
+  "confidence": 1.0,
+  "tool_result": {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 440000,
+    "days_since_created": 6,
+    "flagged_priority_review": false,
+    "escalation_score": 0.08,
+    "escalation_threshold": 0.36,
+    "escalate_recommended": false
+  },
+  "conversation_id": "api-demo-conv-2"
+}
+
+--- 4. POST /ask (Input Guardrail ΓÇö Phone Number PII Masking) ---
+Request Body : {"query": "Please call me on +91 98765 43210 regarding employee referral bonus payouts.", "conversation_id": "api-demo-conv-3"}
+Status Code  : 200
+Response JSON:
+{
+  "answer": "Based on Naukri.com policy (referral_bonus): Active full-time employees below director level are eligible to earn a referral payout when a referred candidate is hired through the internal referral portal. The referral bonus is 40000 INR for technical and product positions and 25000 INR for analytics, sales, and human-resources positions. [Sources: referral_bonus]",
+  "route": "rag",
+  "sources": [
+    "referral_bonus"
+  ],
+  "grounded": true,
+  "guardrail_flags": [
+    "pii_masked"
+  ],
+  "trace_id": "1c98c7e1-a0b9-474f-b1ce-19c255a3d46e",
+  "confidence": 0.5802,
+  "tool_result": null,
+  "conversation_id": "api-demo-conv-3"
+}
+
+--- 5. POST /add-document (Add New Policy Document to Both Collections) ---
+Request Body : {"doc_id": "relocation_policy", "title": "Candidate Relocation Policy", "text": "Selected outstation candidates relocating more than 100 kilometers receive a flat 60000 INR relocation reimbursement. Claims must be submitted within 45 days of joining."}
+Status Code  : 200
+Response JSON:
+{
+  "doc_id": "relocation_policy",
+  "chunks_added": {
+    "kb_fixed": 1,
+    "kb_sentence": 1
+  }
+}
+
+--- 6. POST /ask (Query Newly Added Relocation Policy Document) ---
+Request Body : {"query": "How much is the candidate relocation reimbursement and when must claims be submitted?", "conversation_id": "api-demo-conv-4"}
+Status Code  : 200
+Response JSON:
+{
+  "answer": "Based on Naukri.com policy (relocation_policy): Selected outstation candidates relocating more than 100 kilometers receive a flat 60000 INR relocation reimbursement. Claims must be submitted within 45 days of joining. [Sources: relocation_policy]",
+  "route": "rag",
+  "sources": [
+    "relocation_policy"
+  ],
+  "grounded": true,
+  "guardrail_flags": [],
+  "trace_id": "1d7033fe-1ba4-4af5-a3f8-3c62509a573f",
+  "confidence": 0.6667,
+  "tool_result": null,
+  "conversation_id": "api-demo-conv-4"
+}
+
+[OK] FastAPI demonstration complete.
